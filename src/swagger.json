@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info":{
-    "title": "RentalX Documentation",
+    "title": "Rentx Documentation",
     "description": "this is an API Rent",
     "version": "1.0.0",
     "contact":{
@@ -61,6 +61,68 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/categories/import":{
+      "post":{
+        "tags": ["Category"],
+        "summary": "Upload a csv file",
+        "description": "Upload a csv file containing name and description of categories",
+        "consumes": "multipart/form-data",
+        "requestBody":{
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "name": "file"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": {
+          "in": "formData",
+          "name": "file",
+          "type": "file",
+          "description": "the file to upload"
+        }
+      }
+    },
+    "/specifications":{
+      "post":{
+        "tags": ["Specification"],
+        "summary": "Create a Specification",
+        "description": "Create a new specification",
+        "requestBody":{
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {"type":"string"},
+                  "description":{"type":"string"}
+                },
+                "example":{
+                  "name": "category",
+                  "description": "category description"
+                }
+              }
+            }
+          }
+        },
+        "responses":{
+          "201":{
+            "description": "created"
+          },
+          "500":{
+            "description": "specification already exists"
           }
         }
       }
