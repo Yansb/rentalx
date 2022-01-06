@@ -9,6 +9,91 @@
     }
   },
   "paths":{
+    "/sessions":{
+      "post":{
+        "tags": ["User"],
+        "summary": "Authenticate user",
+        "description": "Authenticate user to application",
+        "requestBody":{
+          "content": {
+            "application/json":{
+              "schema": {
+                "type": "object",
+                "properties":{
+                  "email":{
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password":{
+                    "type": "string",
+                    "format": "password"
+                  }
+                },
+                "example":{
+                  "email": "useremail@gmail.com",
+                  "password": "1234"
+                }
+                }
+              }
+            }
+          },
+          "responses":{
+            "200":{
+              "description": "user email and name, also token"
+            },
+            "400":{
+              "description": "Email or password incorrect"
+            }
+          }
+        }
+      },  
+      "/users":{
+        "post":{
+          "tags": ["User"],
+          "summary": "Create user",
+          "description": "Create a new user to application",
+          "requestBody":{
+            "content": {
+              "application/json":{
+                "schema": {
+                  "type": "object",
+                  "properties":{
+                    "name":{
+                      "type": "string"
+                    },
+                    "driver_license": {"type": "string"},
+                    "email":{
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "password":{
+                      "type": "string",
+                      "format": "password"
+                    }
+                  },
+                  "example":{
+                    "email": "useremail@gmail.com",
+                    "password": "1234",
+                    "driver_license": "123456789",
+                    "name": "User Name"
+                  }
+                  }
+                }
+              }
+            },
+            "responses":{
+              "201":{
+                "description": "User created successfully"
+              },
+              "400": {
+                "description": "User already exists"
+              }, 
+              "500":{
+                "description": "Internal server error"
+              }
+            }
+          }
+        },  
     "/categories": {
       "post":{
         "tags": ["Category"],
