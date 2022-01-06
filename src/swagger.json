@@ -79,19 +79,17 @@
                 "properties": {
                   "file": {
                     "type": "string",
-                    "format": "binary",
-                    "name": "file"
+                    "format": "binary"
                   }
                 }
               }
             }
           }
         },
-        "parameters": {
-          "in": "formData",
-          "name": "file",
-          "type": "file",
-          "description": "the file to upload"
+        "responses":{
+          "201":{
+            "description": "created"
+          }
         }
       }
     },
@@ -110,10 +108,19 @@
                   "description":{"type":"string"}
                 },
                 "example":{
-                  "name": "category",
-                  "description": "category description"
+                  "name": "Specification",
+                  "description": "category specification"
                 }
               }
+            }
+          }
+        },
+        "definitions":{
+          "Specification":{
+            "type": "object",
+            "properties": {
+              "name": {"type":"string"},
+              "description": {"type":"string"}
             }
           }
         },
@@ -127,5 +134,6 @@
         }
       }
     }
+    
   }
 }

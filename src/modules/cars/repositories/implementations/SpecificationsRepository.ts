@@ -1,3 +1,4 @@
+import { getRepository, ILike, Repository } from "typeorm";
 import { Specification } from "../../entities/Specification";
 import {
   ICreateSpecificationsDTO,
@@ -5,22 +6,24 @@ import {
 } from "../interfaces/ISpecificationsRepository";
 
 export class SpecificationsRepository implements ISpecificationsRepository {
-  private specifications: Specification[];
+  private repository: Repository<Specification>;
 
   constructor() {
-    this.specifications = [];
+    this.repository = getRepository(Specification);
   }
 
-  create({ description, name }: ICreateSpecificationsDTO): void {
-    const specification = new Specification();
-    Object.assign(specification, { name, description, created_at: new Date() });
+  async create({ description, name }: ICreateSpecificationsDTO): Promise<void> {
+    const specification = this.repository.create({
+      description,
+      name,
+    });
 
-    this.specifications.push(specification);
+    await this.repository.save(specification);
   }
-  findByName(name: string): Specification {
-    const specification = this.specifications.find(
-      (specification) => specification.name === name
-    );
+  async findByName(name: string): Promise<Specification> {
+    const specification = await this.repository.findOne({
+      name: ILike(`${name}`),
+    });
     return specification;
   }
 }
