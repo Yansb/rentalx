@@ -13,7 +13,7 @@
     "paths": {
       "@modules/*": ["modules/*"],
       "@middlewares/*": ["middlewares/*"],
-      "@errors/*": ["errors/*"],
+      "@shared/*": ["shared/*"],
       "@config/*": ["config/*"],
       "@utils/*": ["utils/*"]
     }
