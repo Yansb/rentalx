@@ -6,27 +6,25 @@
 
 **RN**
 [x] Não deve ser possível cadastrar um carro com uma placa já existente
-[ ] Não deve ser possível alterar a placa de um carro ja cadastrado
-[ ] O carro deve ser cadastrado como disponível por padrão
-[ ] O usuário responsável pelo cadastro do carro deve ser um admin
+[x] Não deve ser possível alterar a placa de um carro ja cadastrado
+[x] O carro deve ser cadastrado como disponível por padrão
+[x] O usuário responsável pelo cadastro do carro deve ser um admin
 
 # Listagem de carros
 
 **RF**
-[ ] Deve ser possível listar todos os carros disponíveis
-[ ] Deve ser possível listar todos os carros disponíveis pelo nome da categoria
-[ ] Deve ser possível listar todos os carros disponíveis pelo nome da marca
-[ ] Deve ser possível listar todos os carros disponíveis pelo nome do carro
+[x] Deve ser possível listar todos os carros disponíveis
+[x] Deve ser possível listar todos os carros disponíveis pelo nome da categoria
+[x] Deve ser possível listar todos os carros disponíveis pelo nome da marca
+[x] Deve ser possível listar todos os carros disponíveis pelo nome do carro
 
 **RNF**
-[ ] O usuário não precisa estar logado no sistema
+[x] O usuário não precisa estar logado no sistema
 
 # Cadastro de especificação no carro
 
 **RF**
 [ ] Deve ser possível cadastrar uma especificação para um carro
-[ ] Deve ser possível listar todas as especificações
-[ ] Deve ser possível listar todos os carros
 
 **RN**
 [ ] Não deve ser possível cadastrar uma especificação para um carro não cadastrado
