@@ -7,7 +7,10 @@ import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../../../swagger.json";
 import { AppError } from "@shared/errors/AppError";
 
+import createConnection from "@shared/infra/typeorm";
+
 const app = express();
+createConnection();
 
 app.use(express.json());
 
