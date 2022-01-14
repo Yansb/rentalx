@@ -5,6 +5,15 @@ import utc from "dayjs/plugin/utc";
 dayjs.extend(utc);
 
 export class DayjsDateProvider implements IDateProvider {
+  compareIfBefore(start_date: Date, end_date: Date): boolean {
+    return dayjs(start_date).isBefore(end_date);
+  }
+  addHours(hours: number, date = new Date()): Date {
+    return dayjs(date).add(hours, "hours").toDate();
+  }
+  addDays(days: number, date = new Date()): Date {
+    return dayjs(date).add(days, "days").toDate();
+  }
   compareInDays(start_date: Date, end_date: Date): number {
     const end_date_utc = this.convertToUTC(end_date);
     const start_date_utc = this.convertToUTC(start_date);
