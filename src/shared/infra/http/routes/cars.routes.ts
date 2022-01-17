@@ -1,4 +1,4 @@
-import { upload } from "@config/upload";
+import uploadConfig from "@config/upload";
 import { CreateCarController } from "@modules/cars/useCases/createCar/CreateCarController";
 import { CreateCarSpecificationController } from "@modules/cars/useCases/createCarSpecification/CreateCarSpecificationController";
 import { ListAvailableCarsController } from "@modules/cars/useCases/listAvailableCars/ListAvailableCarsController";
@@ -15,7 +15,7 @@ const listAvailableCars = new ListAvailableCarsController();
 const createCarSpecificationController = new CreateCarSpecificationController();
 const uploadCarImagesController = new UploadCarImagesController();
 
-const uploadCar = multer(upload("./cars"));
+const uploadCar = multer(uploadConfig);
 
 carsRoutes.post(
   "/",
